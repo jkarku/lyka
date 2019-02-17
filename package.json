@@ -1,14 +1,12 @@
 {
-  "scripts": {   
-  "start": "node bot.js",  
-
-  "name": "Horntail-v2.0",
-  "version": "1.0.0",
-  "description": "My own Discord bot",
-  "main": "bot.js",
-  "author": "YOUR-NAME-HERE",
+  "name": "Lyka"
+  "description": "Discord Bot"
+  "version": "0.0.0"
+  "main": "bot.js"
+  "scripts": {
+    "start": "node bot.js"
+},
   "dependencies": {
-    "discord.io": "https://github.com/woor/discord.io/tarball/gateway_v6",
-    "winston": "^2.4.4"
+  "discord.js": 11.1.0",
   }
 }

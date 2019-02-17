@@ -2,7 +2,7 @@
 const Discord = require('discord.js');
 const bot = new Discord.Client({
 
-client.on('ready', () => {
+bot.on('ready', () => {
 	console.log('I am ready!');
 });
 
@@ -93,7 +93,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
      }
 });
 
-client.login(process.env.BOT_TOKEN);
+bot.login(process.env.BOT_TOKEN);
 
 
 

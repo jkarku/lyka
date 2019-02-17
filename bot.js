@@ -1,9 +1,7 @@
-var Discord = require('discord.io');
-var logger = require('winston');
-// Configure logger settings
-logger.remove(logger.transports.Console);
-logger.add(logger.transports.Console, {
-    colorize: true
+
+const = Discord = require('discord.js');
+const = client = new Discord.Client();
+
 });
 logger.level = 'debug';
 // Initialize Discord Bot
@@ -102,3 +100,5 @@ bot.on('message', function (user, userID, channelID, message, evt) {
          }
      }
 });
+
+client.login(process.env.BOT_TOKEN);

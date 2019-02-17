@@ -2,6 +2,11 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
 
+}
+
+client.on('ready', () => {
+	conlsole.log('I am ready!');
+
 
 });
 bot.on('message', function (user, userID, channelID, message, evt) {

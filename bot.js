@@ -8,8 +8,8 @@ logger.add(logger.transports.Console, {
 });
 logger.level = 'debug';
 // Initialize Discord Bot
-var bot = new Discord.Client({
-   token: bot.login(process.env.BOT_TOKEN),
+const bot = new Discord.Client({
+   token: client.login(process.env.BOT_TOKEN),
    autorun: true
 });
 bot.on('ready', function (evt) {

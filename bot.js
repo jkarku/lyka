@@ -1,14 +1,31 @@
+var Discord = require('discord.io');
+var logger = require('winston');
 
-const Discord = require('discord.js');
-const client = new Discord.Client();
-
-client.on('ready', () => {
-	console.log('I am ready!');
+// Configure logger settings
+logger.remove(logger.transports.Console);
+logger.add(logger.transports.Console, {
+    colorize: true
 });
-
-client.on('message', message => {
+logger.level = 'debug';
+// Initialize Discord Bot
+var bot = new Discord.Client({
+   token: (process.env.BOT_TOKEN),
+   autorun: true
+});
+bot.on('ready', function (evt) {
+    logger.info('Connected');
+    logger.info('Logged in as: ');
+    logger.info(bot.username + ' - (' + bot.id + ')');
+});
+bot.on('message', function (user, userID, channelID, message, evt) {
+    // Our bot needs to know if it will execute a command
+    // It will listen for messages that will start with `!`
     if (message.substring(0, 1) == '!') {
-        
+        var args = message.substring(1).split(' ');
+        var cmd = args[0];
+       
+        args = args.splice(1);
+        switch(cmd) {
             // !ping
             case 'ping':
                 bot.sendMessage({
@@ -23,7 +40,7 @@ client.on('message', message => {
                 bot.sendMessage({
                     to: channelID,
                     message: 'I work with commands: !zak !recruit !members !jr !invite !event !boss !RR'
-		            });
+		  });
             break;
             // !recruit
             case 'recruit':
@@ -45,21 +62,21 @@ client.on('message', message => {
                     to: channelID,
                     message: 'Call for aid. Better tag all of them @Maestro'
                 });
-	          break;
+	  break;
          // !boss
             case 'boss':
                 bot.sendMessage({
                     to: channelID,
                     message: '_"The one leader to rule them all..._" @Virtuoso Jake, HIDE THE BOTTLES!'
                 });
-	          break;
+	  break;
          // !event
             case 'event':
                 bot.sendMessage({
                     to: channelID,
                     message: '_No events can be found..._ Make one! #events'
                 });
-	          break;
+	break;
          // !RR
             case 'RR':
                 bot.sendMessage({
@@ -72,14 +89,14 @@ client.on('message', message => {
                 bot.sendMessage({
                     to: channelID,
                     message: 'ZAK TIME. Running in 15 minutes join if you can'
-		            });
+		  });
 	         break;
             // !invite
             case 'invite':
                 bot.sendMessage({
                     to: channelID,
                     message: 'Send this link to your friend: https://discord.gg/dvpTMzq'
-		            });
+		  });
 
 
 
@@ -87,8 +104,4 @@ client.on('message', message => {
      }
 });
 
-client.login(process.env.BOT_TOKEN);
-
-
-
-
+client.login(process.env.BOT_TOKEN)

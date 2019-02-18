@@ -9,7 +9,7 @@ logger.add(logger.transports.Console, {
 logger.level = 'debug';
 // Initialize Discord Bot
 const bot = new Discord.Client({
-   token: client.login(process.env.BOT_TOKEN),
+   token: auth.token,
    autorun: true
 });
 bot.on('ready', function (evt) {
@@ -103,5 +103,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
          }
      }
 });
+
+client.login(process.env.BOT_TOKEN)
 
 

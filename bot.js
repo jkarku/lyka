@@ -11,6 +11,7 @@ console.log(`Bot has started, with ${client.users.size} users, in ${client.chann
 client.user.setActivity(`Serving ${client.guilds.size} servers`);
   });
 
+if
 
             // !ping
             case 'ping':
@@ -85,7 +86,7 @@ client.user.setActivity(`Serving ${client.guilds.size} servers`);
 		            });
 
 
-
+else; return
          }
      }
 });

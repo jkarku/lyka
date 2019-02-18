@@ -13,12 +13,11 @@ client.on('message', message => {
        
         args = args.splice(1);
         switch(cmd) {
-		
-		if(message.substring(0, 1) == '!ping')
+            // !ping
+            case 'ping':
                 bot.sendMessage({
                     to: channelID,
                     message: 'Burn! :fire:'
-		break;
 
 
                 });

@@ -1,15 +1,10 @@
 
+
 const Discord = require('discord.js');
-// Configure logger settings
-logger.remove(logger.transports.Console);
-logger.add(logger.transports.Console, {
-    colorize: true
-});
-logger.level = 'debug';
-// Initialize Discord Bot
-var bot = new Discord.Client({
+const bot = new Discord.Client({
 
 });
+
 bot.on('ready', function (evt) {
     logger.info('Connected');
     logger.info('Logged in as: ');
@@ -101,6 +96,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
          }
      }
 });
+
 client.login(process.env.BOT_TOKEN);
 
 
